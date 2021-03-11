@@ -1,0 +1,140 @@
+<HTML>
+
+    <HEAD>
+    
+        <TITLE>Timer</TITLE>
+        <script>
+            var currentTime = new Date();
+
+            function displayDate(eventBtn) {
+                var nowTime = new Date();
+                var diff = nowTime.getTime() - currentTime.getTime();
+                var diffSec = diff / 1000;
+                currentTime = nowTime;
+                var time = nowTime.getHours() + ":" + nowTime.getMinutes() + ":" + nowTime.getSeconds();
+                var table = document.getElementById("resultsTable");
+                var row = table.insertRow();
+                var descriptionCell = row.insertCell(0);
+                var timeCell = row.insertCell(1);
+                var durationCell = row.insertCell(2);
+
+                descriptionCell.innerHTML = eventBtn.innerHTML;
+                timeCell.innerHTML = time;
+                durationCell.innerHTML = Math.abs(diffSec);
+            }
+        </script>
+
+        <style>
+            button {
+                padding: 14px 16px;
+            }
+        </style>
+    </HEAD>
+    
+    <BODY BGCOLOR="FFFFFF">
+    
+    <HR>
+        <table>
+            <tr>
+                <th colspan = 3>Setting up</th>
+            </tr>
+            <tr>
+                <td>
+                    <button type="button" onclick="displayDate(this)">Lists Viewed</button>
+                </td>
+                <td>
+                    <button type="button" onclick="displayDate(this)">List Selected</button>            
+                </td>
+            </tr>
+            <tr>
+                <th colspan = 3>Initiating</th>
+            </tr>
+            <tr>
+                <td>
+                    <button type="button" onclick="displayDate(this)">Additional info checked</button>
+                </td>
+                <td>
+                    <button type="button" onclick="displayDate(this)">Picking Labels attached</button>
+                </td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <th colspan = 3>Picking</th>
+            </tr>
+            <tr>
+                <td>
+                    <button type="button" onclick="displayDate(this)">Item Viewed</button>
+                </td>
+                <td>
+                    <button type="button" onclick="displayDate(this)">Item Found</button>
+                </td>
+                <td>
+                    <button type="button" onclick="displayDate(this)">Item Boxed</button>
+                </td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <button type="button" onclick="displayDate(this)" style="color: brown;">Not Found</button>
+                </td>
+                <td>
+                    <button type="button" onclick="displayDate(this)" style="color: brown;">Item substituted</button>
+                </td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <th>Finished Picking</th>
+                <th> Packaging & Labelling</th>
+            </tr>
+            <tr>
+                <td>
+                    <button type="button" onclick="displayDate(this)">All items picked</button>
+                </td>
+                <td>
+                    <button type="button" onclick="displayDate(this)">Customer labels attached</button>
+                </td>
+            </tr>
+            <tr>
+                <th>Buffering & Reviewing</th>
+            </tr>
+            <tr>
+                <td>
+                    <button type="button" onclick="displayDate(this)">Boxes buffered</button>
+                </td>
+                <td>
+                    <button type="button" onclick="displayDate(this)">Packaging costs added</button>
+                </td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+            </tr>
+        </table>
+
+        <h1>Log</h1>
+    <p id="events">Starting:</p>
+    <table id="resultsTable">
+        <tr>
+            <th>Description</th>
+            <th>Time</th>
+            <th>Duration</th>
+        </tr>
+    </table>
+    
+    <HR>
+    
+    </BODY>
+    
+    </HTML>
